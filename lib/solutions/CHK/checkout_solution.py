@@ -14,14 +14,10 @@ def checkout(skus: str) -> int:
     checkout_total = 0
     
     for sku in skus:
-        if sku == "A":
-            checkout_total += 50
-        elif sku == "B":
-            checkout_total += 30
-        elif sku == "C":
-            checkout_total += 20
-        elif sku == "D":
-            checkout_total += 15
+        if sku not in SKU_COSTS:
+            return -1
+
+        checkout_total += SKU_COSTS[sku]
 
     return checkout_total
 

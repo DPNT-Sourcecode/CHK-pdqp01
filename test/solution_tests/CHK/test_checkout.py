@@ -19,3 +19,12 @@ def test_checkout_single_item(sku, cost):
 ])
 def test_checkout_with_invalid_input(invalid_input):
     assert checkout_solution.checkout(invalid_input) == -1
+
+@pytest.mark.parametrize("skus, cost", [
+    ("AAA", 130),
+    ("BB", 45),
+    ("AAAA", 180),
+    ("BBB", 75)
+])
+def test_checkout_with_special_offer(skus, cost):
+    assert checkout_solution.checkout(skus) == cost
