@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus: str) -> int:
-    if not skus.isalpha() and not skus.isupper():
+    if not skus.isalpha() or not skus.isupper():
         return -1
 
     checkout_total = 0
