@@ -6,7 +6,8 @@ import pytest
     ("A", 50),
     ("B", 30),
     ("C", 20),
-    ("D", 15)
+    ("D", 15),
+    ("", 0)
 ])
 def test_checkout_single_item(sku, cost):
     assert checkout_solution.checkout(sku) == cost
@@ -14,7 +15,6 @@ def test_checkout_single_item(sku, cost):
 @pytest.mark.parametrize("invalid_input", [
     (123),
     ("a"),
-    (""),
     ("F"),
     ({})
 ])
@@ -30,3 +30,4 @@ def test_checkout_with_invalid_input(invalid_input):
 ])
 def test_checkout_with_special_offer(skus, cost):
     assert checkout_solution.checkout(skus) == cost
+
