@@ -15,7 +15,8 @@ def test_checkout_single_item(sku, cost):
     (123),
     ("a"),
     (""),
-    ("F")
+    ("F"),
+    ({})
 ])
 def test_checkout_with_invalid_input(invalid_input):
     assert checkout_solution.checkout(invalid_input) == -1
