@@ -19,27 +19,30 @@ def checkout(skus: str) -> int:
     offers = Offers()
     checkout = Checkout(SKU_COSTS, Offers)
 
-    sku_counts: Dict[str, int] = {}
+    return checkout.get_total_value(skus)
 
-    for sku in skus:
-        if sku not in SKU_COSTS:
-            return -1
+    # sku_counts: Dict[str, int] = {}
 
-        if sku not in sku_counts:
-            sku_counts[sku] = 1
-        else:
-            sku_counts[sku] += 1
+    # for sku in skus:
+    #     if sku not in SKU_COSTS:
+    #         return -1
 
-    for sku in sku_counts:
-        if sku in MULTIBUYS:
-            multibuy_count = sku_counts[sku] // MULTIBUYS[sku]["number"]
-            multibuy_cost = multibuy_count * MULTIBUYS[sku]["total_cost"]
-            checkout_total += multibuy_cost
+    #     if sku not in sku_counts:
+    #         sku_counts[sku] = 1
+    #     else:
+    #         sku_counts[sku] += 1
 
-            indivdual_units = sku_counts[sku] % MULTIBUYS[sku]["number"]
-            indivdual_cost = indivdual_units * SKU_COSTS[sku]
-            checkout_total += indivdual_cost
-        else:
-            checkout_total += SKU_COSTS[sku] * sku_counts[sku]
+    # for sku in sku_counts:
+    #     if sku in MULTIBUYS:
+    #         multibuy_count = sku_counts[sku] // MULTIBUYS[sku]["number"]
+    #         multibuy_cost = multibuy_count * MULTIBUYS[sku]["total_cost"]
+    #         checkout_total += multibuy_cost
 
-    return checkout_total
+    #         indivdual_units = sku_counts[sku] % MULTIBUYS[sku]["number"]
+    #         indivdual_cost = indivdual_units * SKU_COSTS[sku]
+    #         checkout_total += indivdual_cost
+    #     else:
+    #         checkout_total += SKU_COSTS[sku] * sku_counts[sku]
+
+    # return checkout_total
+
