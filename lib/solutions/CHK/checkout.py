@@ -20,7 +20,14 @@ class Checkout():
             else:
                 sku_counts[sku] += 1
 
-        cost_of_offers, remaining_skus = self.apply_offers(sku_counts)
+        offers_value, remaining_skus = self.apply_offers(sku_counts)
+        total_value += offers_value
 
         for sku in remaining_skus:
-                total_value += self.price_list[sku] * sku_counts[sku]
+                total_value += self.price_list[sku] * remaining_skus[sku]
+
+        return total_value
+    
+    def apply_offers(self, sku_counts):
+        
+
