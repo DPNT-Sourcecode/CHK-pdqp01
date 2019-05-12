@@ -32,8 +32,15 @@ def checkout(skus: str) -> int:
         if sku not in SKU_COSTS:
             return -1
 
-        checkout_total += SKU_COSTS[sku]
+        if sku not in sku_counts:
+            sku_counts[sku] = 1
+        else:
+            sku_counts[sku] += 1
+
+    for sku in sku_counts:
+        
 
     return checkout_total
+
 
 
