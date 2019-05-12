@@ -24,7 +24,8 @@ def test_checkout_with_invalid_input(invalid_input):
     ("AAA", 130),
     ("BB", 45),
     ("AAAA", 180),
-    ("BBB", 75)
+    ("BBB", 75),
+    ("AAAABBCD", 260)
 ])
 def test_checkout_with_special_offer(skus, cost):
     assert checkout_solution.checkout(skus) == cost

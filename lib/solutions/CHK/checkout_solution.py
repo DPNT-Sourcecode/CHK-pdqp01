@@ -41,8 +41,13 @@ def checkout(skus: str) -> int:
         if sku in MULTIBUYS:
             multibuy_count = sku_counts[sku] // MULTIBUYS[sku]["number"]
             multibuy_cost = multibuy_count * MULTIBUYS[sku]["total_cost"]
-
+            checkout_total += multibuy_cost
             
+            indivdual_units = sku_counts[sku] % MULTIBUYS[sku]["number"]
+            indivdual_cost = indivdual_units * SKU_COSTS[sku]
+            checkout_total += indivdual_cost
+        else:
+            checkout_total += SKU_COSTS[sku] * sku_counts[sku]
 
     return checkout_total
 
