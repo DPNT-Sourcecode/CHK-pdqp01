@@ -38,9 +38,13 @@ def checkout(skus: str) -> int:
             sku_counts[sku] += 1
 
     for sku in sku_counts:
-        
+        if sku in MULTIBUYS:
+            multibuy_count = sku_counts[sku] // MULTIBUYS[sku]["number"]
+
+            
 
     return checkout_total
+
 
 
 
