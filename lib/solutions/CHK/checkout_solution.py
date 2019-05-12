@@ -20,5 +20,3 @@ def checkout(skus: str) -> int:
     checkout = Checkout(SKU_COSTS, Offers)
 
     return checkout.get_total_value(skus)
-
-
