@@ -40,10 +40,12 @@ def checkout(skus: str) -> int:
     for sku in sku_counts:
         if sku in MULTIBUYS:
             multibuy_count = sku_counts[sku] // MULTIBUYS[sku]["number"]
+            multibuy_cost = multibuy_count * MULTIBUYS[sku]["total_cost"]
 
             
 
     return checkout_total
+
 
 
 
