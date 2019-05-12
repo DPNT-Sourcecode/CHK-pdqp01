@@ -1,12 +1,15 @@
-VALID_SKUS = ["A", "B", "C", "D"]
+SKU_COSTS = {
+    "A": 50,
+    "B": 30,
+    "C": 20,
+    "D": 15
+}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus: str) -> int:
     if not isinstance(skus, str) or not skus.isalpha() or not skus.isupper():
         return -1
-
-    
 
     checkout_total = 0
     
@@ -21,3 +24,4 @@ def checkout(skus: str) -> int:
             checkout_total += 15
 
     return checkout_total
+
