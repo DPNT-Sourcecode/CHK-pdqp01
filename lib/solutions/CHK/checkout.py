@@ -7,6 +7,8 @@ class Checkout():
         self.offers = offers
 
     def get_total_value(self, skus: str) -> int:
+        total_value = 0
+
         sku_counts: Dict[str, int] = {}
 
         for sku in skus:
@@ -18,4 +20,7 @@ class Checkout():
             else:
                 sku_counts[sku] += 1
 
-        
+        cost_of_offers, remaining_skus = self.apply_offers(sku_counts)
+
+        for sku in remaining_skus:
+                total_value += self.price_list[sku] * sku_counts[sku]
