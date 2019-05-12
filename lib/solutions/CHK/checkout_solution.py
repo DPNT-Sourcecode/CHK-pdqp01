@@ -1,4 +1,6 @@
 from typing import Dict
+from solutions.CHK.checkout import Checkout
+from solutions.CHK.offers import Offers
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -14,7 +16,8 @@ def checkout(skus: str) -> int:
     if not isinstance(skus, str):
         return -1
 
-    checkout_total = 0
+    offers = Offers()
+    checkout = Checkout(SKU_COSTS, Offers)
 
     sku_counts: Dict[str, int] = {}
 
