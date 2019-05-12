@@ -30,4 +30,3 @@ def test_checkout_with_invalid_input(invalid_input):
 ])
 def test_checkout_with_special_offer(skus, cost):
     assert checkout_solution.checkout(skus) == cost
-
